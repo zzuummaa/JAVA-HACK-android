@@ -3,6 +3,7 @@ package com.jhapp.mc.app
 import android.app.Application
 import com.jhapp.mc.dagger.components.AppComponent
 import com.jhapp.mc.dagger.components.DaggerAppComponent
+import com.jhapp.mc.dagger.modules.ApiModule
 import com.jhapp.mc.dagger.modules.AppModule
 import com.jhapp.mc.dagger.modules.InteractorsModule
 
@@ -18,8 +19,9 @@ class App: Application() {
     }
 
     private fun buildComponent() = DaggerAppComponent.builder()
-//        .appModule(AppModule(applicationContext))
+        .appModule(AppModule(applicationContext))
 //        .databaseModule(DatabaseModule())
-//        .interactorsModule(InteractorsModule())
+        .apiModule(ApiModule())
+        .interactorsModule(InteractorsModule())
         .build()
 }

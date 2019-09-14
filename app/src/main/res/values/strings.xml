@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">JHAPP</string>
+    <string name="app_name">Raiffeisen Invest</string>
+    <string name="invest_title">Инвестиции</string>
+    <string name="buy_title">Покупки</string>
+    <string-array name="businesses_filters">
+        <item>Все</item>
+        <item>IT</item>
+        <item>Развлечения</item>
+        <item>Образование</item>
+    </string-array>
 </resources>

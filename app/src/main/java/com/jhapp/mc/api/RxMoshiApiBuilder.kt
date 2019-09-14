@@ -4,6 +4,7 @@ import android.util.Log
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
+import okhttp3.Authenticator
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,7 +20,7 @@ interface ApiBuilder {
 }
 
 
-class RxMoshiApiBuilder(url: String = "") : ApiBuilder {
+class RxMoshiApiBuilder(url: String = "http://zzuummaa.sytes.net:8070/") : ApiBuilder {
 
     private val retrofit: Retrofit
 
@@ -73,7 +74,7 @@ class RxMoshiApiBuilder(url: String = "") : ApiBuilder {
         retrofit = Retrofit.Builder()
             .baseUrl(url)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(nullOnEmptyConverterFactory)
+//            .addConverterFactory(nullOnEmptyConverterFactory)
             .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().build()))
             .client(httpClient.build())
             .build()
