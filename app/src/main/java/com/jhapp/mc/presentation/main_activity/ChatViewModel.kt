@@ -3,6 +3,7 @@ package com.jhapp.mc.presentation.main_activity
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
+import com.jhapp.mc.api.models.Business
 import com.jhapp.mc.api.models.ChatMessage
 import com.jhapp.mc.app.App
 import com.jhapp.mc.base.BaseViewModel
@@ -12,14 +13,17 @@ import javax.inject.Inject
 
 class ChatViewModel: BaseViewModel() {
 
+
     @Inject
     lateinit var loginInteractor: LoginInteractor
 
     private var lastData: List<ChatMessage>? = null
 
-    private var initLD = MutableLiveData<List<ChatMessage>>()
+    val initLD = MutableLiveData<List<ChatMessage>>()
 
-    private var updatesLD = MutableLiveData<Pair<MutableList<ChatMessage>, DiffUtil.DiffResult>>()
+    val updatesLD = MutableLiveData<Pair<MutableList<ChatMessage>, DiffUtil.DiffResult>>()
+
+    val businessLD = MutableLiveData<Business>()
 
     init {
         App.component.inject(this)
@@ -46,6 +50,23 @@ class ChatViewModel: BaseViewModel() {
                     lastData = it
                     updatesLD.postValue(it.toMutableList() to diff)
                 }, ::onError)
+        )
+    }
+
+    fun sendMessage(t: String) {
+        compositeDisposable.add(
+            loginInteractor.sendMessage(t)
+                .subscribe({}, ::onError)
+        )
+    }
+
+    fun loadBusiness(id: Int) {
+        compositeDisposable.add(
+            loginInteractor.getBusinesses(null)
+                .subscribe({
+                    val b = it.findLast { it.id == id}?:return@subscribe
+                    businessLD.postValue(b!!!!!!)
+                }){}
         )
     }
 }

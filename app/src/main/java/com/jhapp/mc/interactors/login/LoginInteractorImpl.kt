@@ -35,4 +35,9 @@ class LoginInteractorImpl(
     override fun subscribeForUpdates(): Single<List<ChatMessage>> {
         return loginApi.getChat().subscribeOn(Schedulers.io())
     }
+
+    override fun sendMessage(t: String): Completable {
+        return loginApi.sendMessage(NewMessageReqBody(t, false)).subscribeOn(Schedulers.io())
+    }
+
 }

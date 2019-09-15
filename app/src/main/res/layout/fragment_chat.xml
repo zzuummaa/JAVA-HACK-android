@@ -52,8 +52,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:foregroundGravity="bottom"
         android:overScrollMode="never"
-        tools:itemCount="2"
         android:id="@+id/recycler"
+        tools:listitem="@layout/item_left"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

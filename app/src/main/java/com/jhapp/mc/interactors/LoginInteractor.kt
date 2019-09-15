@@ -15,4 +15,6 @@ interface LoginInteractor {
     fun getInvestements(): Single<List<Investement>>
 
     fun subscribeForUpdates(): Single<List<ChatMessage>>
+
+    fun  sendMessage(t: String): Completable
 }

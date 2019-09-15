@@ -10,6 +10,7 @@ class SplashScreenActivity: Activity() {
         super.onCreate(savedInstanceState)
 
         startActivity(Intent(baseContext, MainActivity::class.java))
+        finish()
         overridePendingTransition(0,0 )
     }
 }

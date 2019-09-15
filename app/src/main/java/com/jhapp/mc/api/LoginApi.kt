@@ -34,5 +34,5 @@ interface LoginApi {
 
     @Headers(CONTENT_TYPE)
     @POST("/chatbot")
-    fun sendMessage(@Body body: NewMessageReqBody): Single<List<ChatMessage>>
+    fun sendMessage(@Body body: NewMessageReqBody): Completable
 }
