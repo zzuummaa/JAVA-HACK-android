@@ -25,6 +25,8 @@ class ChatViewModel: BaseViewModel() {
 
     val businessLD = MutableLiveData<Business>()
 
+    val scrollLD = MutableLiveData<Boolean>()
+
     init {
         App.component.inject(this)
     }
@@ -46,9 +48,11 @@ class ChatViewModel: BaseViewModel() {
             loginInteractor.subscribeForUpdates()
                 .repeatUntil { false }// :)))))))))))))))))))))))))))))))))))))))))))))
                 .subscribe({
+                    val dif = lastData?.size != it.size
                     val diff = DiffUtil.calculateDiff(ChatMessageDiffUtils(lastData!!, it))
                     lastData = it
                     updatesLD.postValue(it.toMutableList() to diff)
+                    if (dif) scrollLD.postValue(true)
                 }, ::onError)
         )
     }

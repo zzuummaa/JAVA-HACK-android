@@ -52,6 +52,9 @@ class ChatFragment: Fragment() {
         viewModel.updatesLD.observe(this, Observer {
             adapter.setDataWithDiffResult(it.first)
             it.second.dispatchUpdatesTo(adapter)
+        })
+
+        viewModel.scrollLD.observe(this, Observer {
             recycler.scrollToPosition(0)
         })
 
@@ -67,6 +70,14 @@ class ChatFragment: Fragment() {
                 return false
             }
         })
+
+        recycler.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (bottom < oldBottom) {
+                recycler.post {
+                    recycler.smoothScrollToPosition(0)
+                }
+            }
+        }
 
          viewModel.businessLD.observe(this, Observer {
              startActivity(BusinessActivity.instance(it, context!!))
