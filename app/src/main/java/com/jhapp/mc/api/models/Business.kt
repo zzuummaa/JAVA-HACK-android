@@ -8,7 +8,14 @@ data class Business(
     val id: Int,
     val name: String,
     val category: String,
-    val iconURL: String
+    val iconURL: String,
+    val profit: Chart,
+    val revenue: Chart,
+    val debts: Chart,
+    val assets: Chart,
+    val capital: Chart,
+    val descriptionText: String
+
 ): Parcelable {
     companion object {
         const val CATEGORY_IT = "IT"
@@ -16,3 +23,9 @@ data class Business(
         const val CATEGORY_EDUCATION = "EDUCATION"
     }
 }
+
+@Parcelize
+data class Chart(val x: List<Double>, val y: List<Double>): Parcelable
+
+@Parcelize
+data class Investement(val amount: Double, val business: Business): Parcelable

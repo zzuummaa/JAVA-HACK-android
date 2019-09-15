@@ -5,8 +5,10 @@ import com.jhapp.mc.base.BaseViewModel
 import com.jhapp.mc.dagger.modules.ApiModule
 import com.jhapp.mc.dagger.modules.AppModule
 import com.jhapp.mc.dagger.modules.InteractorsModule
+import com.jhapp.mc.presentation.business_activity.BusinessActivityViewModel
 import com.jhapp.mc.presentation.main_activity.MainActivityViewModel
 import com.jhapp.mc.presentation.main_activity.invest_fragment.InvestFragmentViewModel
+import com.jhapp.mc.presentation.my_businesses_activity.MyInvActViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -22,4 +24,8 @@ interface AppComponent {
     fun inject(obj: MainActivityViewModel)
 
     fun inject(obj: InvestFragmentViewModel)
+
+    fun inject(obj: BusinessActivityViewModel)
+
+    fun inject(obj: MyInvActViewModel)
 }

@@ -8,4 +8,10 @@
         <item>Развлечения</item>
         <item>Образование</item>
     </string-array>
+    <string name="profit">Чистая прибыль</string>
+    <string name="revenue">Выручка</string>
+    <string name="debts">Долги</string>
+    <string name="assets">Активы</string>
+    <string name="capital">Капитал</string>
+    <string name="invest">Инвестировать</string>
 </resources>

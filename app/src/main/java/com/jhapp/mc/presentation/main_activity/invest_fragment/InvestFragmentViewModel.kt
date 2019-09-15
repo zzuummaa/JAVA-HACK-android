@@ -33,7 +33,6 @@ class InvestFragmentViewModel: BaseViewModel() {
             loginInteractor.getBusinesses(category)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.d("vdsvdsv", it.toString())
                     listLiveData.postValue(it)
                 }){onError(it)}
         )

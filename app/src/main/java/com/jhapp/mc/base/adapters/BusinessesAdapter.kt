@@ -82,6 +82,7 @@ class BusinessesAdapter: BaseUpdatesAdapter<Business?>() {
             with(itemView) {
                 Glide.with(iv_logo)
                     .load(model?.iconURL)
+                    .thumbnail(0.1f)
                     .into(iv_logo)
 
                 tv_name.text = model?.name

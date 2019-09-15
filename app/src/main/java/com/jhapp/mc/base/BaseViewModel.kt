@@ -9,6 +9,8 @@ abstract class BaseViewModel: ViewModel() {
     protected val compositeDisposable = CompositeDisposable()
     val errorLiveData = MutableLiveData<Throwable>()
 
+    val snackBarLD = MutableLiveData<String>()
+
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()

@@ -28,11 +28,28 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher"
             android:name=".presentation.splashcreen_activity.SplashScreenActivity" >
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.raiffeisen.ru"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".presentation.business_activity.BusinessActivity"
+            />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".presentation.my_businesses_activity.MyInvestementsActivity"
+            />
+
     </application>
 
 </manifest>
