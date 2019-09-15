@@ -7,3 +7,8 @@ data class InvestResp(
     val amount: Double,
     val business_id: Int
 )
+
+data class NewMessageReqBody(
+    val body: String,
+    val isBot: Boolean
+)

@@ -1,10 +1,7 @@
 package com.jhapp.mc.interactors.login
 
 import com.jhapp.mc.api.LoginApi
-import com.jhapp.mc.api.models.Business
-import com.jhapp.mc.api.models.InvestRequestBody
-import com.jhapp.mc.api.models.InvestResp
-import com.jhapp.mc.api.models.Investement
+import com.jhapp.mc.api.models.*
 import com.jhapp.mc.interactors.LoginInteractor
 import io.reactivex.Completable
 import io.reactivex.Scheduler
@@ -33,5 +30,9 @@ class LoginInteractorImpl(
                 t1.map { i -> Investement(i.amount, t2.findLast { it.id == i.business_id }!!) }
             })
             .subscribeOn(Schedulers.io())
+    }
+
+    override fun subscribeForUpdates(): Single<List<ChatMessage>> {
+        return loginApi.getChat().subscribeOn(Schedulers.io())
     }
 }

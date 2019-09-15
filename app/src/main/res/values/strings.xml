@@ -14,4 +14,5 @@
     <string name="assets">Активы</string>
     <string name="capital">Капитал</string>
     <string name="invest">Инвестировать</string>
+    <string name="chat">Экспертная система</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.jhapp.mc.presentation.main_activity.invest_fragment
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -14,12 +13,12 @@ import com.jhapp.mc.base.adapters.BaseSearchAdapter
 import com.jhapp.mc.base.adapters.BusinessesAdapter
 import com.jhapp.mc.presentation.business_activity.BusinessActivity
 import com.jhapp.mc.presentation.main_activity.MainActivity
-import com.jhapp.mc.presentation.main_activity.MainActivityViewModel
+import com.jhapp.mc.presentation.main_activity.ChatViewModel
 import kotlinx.android.synthetic.main.fragment_invest.*
 
 class InvestFragment: Fragment() {
 
-    private val navViewModel by lazy { ViewModelProviders.of(activity as MainActivity)[MainActivityViewModel::class.java] }
+    private val navViewModel by lazy { ViewModelProviders.of(activity as MainActivity)[ChatViewModel::class.java] }
     private val viewModel by lazy { ViewModelProviders.of(this)[InvestFragmentViewModel::class.java] }
 
     private val adapter by lazy { BusinessesAdapter() }
